@@ -258,7 +258,7 @@ func (g *Module) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 				return tools[toolFiles[0].Rel()].String(), nil
 			}
 		case "genDir":
-			return "android.PathForModuleGen(ctx).String()", nil
+			return android.PathForModuleGen(ctx).String(), nil
 		default:
 			if strings.HasPrefix(name, "location ") {
 				label := strings.TrimSpace(strings.TrimPrefix(name, "location "))
